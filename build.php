@@ -22,6 +22,10 @@ $phar->buildFromDirectory(dirname(__FILE__) . '/src/');
 $phar->setStub(($phar->createDefaultStub('Kernel/Core/Loader.php')));
 
 //
+echo 'runned';
+exit;
+
+//
 //$phar->setStub($phar->createDefaultStub('cli/index.php', 'www/index.php'));
 //$phar->setStub($phar->createDefaultStub("index.php"));
 //copy($srcRoot . "/config.ini", $buildRoot . "/config.ini");
