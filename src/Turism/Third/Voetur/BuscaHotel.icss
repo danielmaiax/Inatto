@@ -1,4 +1,4 @@
-/* @robot_full_class Inatto\Turism\Third\Voetur\BuscaAereo */
+/* @robot_full_class Inatto\Turism\Third\Voetur\BuscaHotel */
 /* @robot_update true */
 
 #_ #buttonPesquisar {

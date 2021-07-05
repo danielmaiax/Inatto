@@ -70,31 +70,29 @@ class BuscaAereo extends Controller
 
             //
             $url = "https://agencias.portalvoetur.com.br/OnlineTravelFrameMVC/Aereo/Disponibilidade?";
-            $url .= "&Adultos=".post('nrAdultos');
-            $url .= "&Criancas=".post('nrCriancas');
-            $url .= "&Bebes=".post('nrBebes');
-            $url .= "&Origem=".post('idAeroporto_origem');
-            $url .= "&Destino=".post('idAeroporto_destino');
-            $url .= "&Tipo=".post('metodoViagem');
-            $url .= "&DataVolta=".post('dataVolta');
-            $url .= "&DataIda=".post('dataIda');
+            $url .= "&Adultos=" . post('nrAdultos');
+            $url .= "&Criancas=" . post('nrCriancas');
+            $url .= "&Bebes=" . post('nrBebes');
+            $url .= "&Origem=" . post('idAeroporto_origem');
+            $url .= "&Destino=" . post('idAeroporto_destino');
+            $url .= "&Tipo=" . post('metodoViagem');
+            $url .= "&DataVolta=" . post('dataVolta');
+            $url .= "&DataIda=" . post('dataIda');
             $url .= "&LojaChave=bGVnaXNjbHViYnJhc2ls";
 
             //
             Location::go($url);
-
             //
         } catch (ValidationException $e) {
             $this->messages()->error($e);
         }
-
     }
 
-    public static function arrayNome($label)
+    public static function arrayNome($label, $max = 4)
     {
         //
         $array = [];
-        for ($x = 1; $x <= 10; $x++)
+        for ($x = 1; $x <= $max; $x++)
             $array[$x] = "$x $label";
 
         //
@@ -122,10 +120,6 @@ class BuscaAereo extends Controller
 
         //
         $inputText = new InputText($label, "aeroname_{$sufix}", null, $_POST);
-//        $inputText->setPlaceHolder($label);
-//        $inputText->setValue($text);
-//        $label = $inputText->buildLabel();
-//        $div->addChild($label);
         $div->addInput($inputText);
 
         //

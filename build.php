@@ -9,7 +9,7 @@
 
 //
 //$srcRoot = __DIR__."/src/commerce";
-$buildRoot =  __DIR__."/build";
+$buildRoot = __DIR__ . "/build";
 
 // remove phar anterior
 if (file_exists($buildRoot . "/Inatto.phar")) unlink($buildRoot . "/Inatto.phar");

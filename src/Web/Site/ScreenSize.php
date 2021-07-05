@@ -11,7 +11,5 @@ class ScreenSize extends Controller
      * @robot_auto_create
      */
 
-
-
 }
 
