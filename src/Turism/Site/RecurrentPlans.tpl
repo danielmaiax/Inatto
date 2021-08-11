@@ -1,5 +1,0 @@
-<section>
-
-    Hello all
-
-</section>
