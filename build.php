@@ -9,6 +9,11 @@
 
 //
 //$srcRoot = __DIR__."/src/commerce";
+
+//
+if (!isLocal()) die('not local');
+
+//
 $buildRoot = __DIR__ . "/build";
 
 // remove phar anterior
@@ -29,3 +34,16 @@ exit;
 //$phar->setStub($phar->createDefaultStub('cli/index.php', 'www/index.php'));
 //$phar->setStub($phar->createDefaultStub("index.php"));
 //copy($srcRoot . "/config.ini", $buildRoot . "/config.ini");
+
+function isLocal()
+{
+    //
+    $ip = $_SERVER['REMOTE_ADDR'];
+    if (in_array($ip, ["127.0.0.1", "::1"])) return true; //ipv4 e ipv6
+    if (in_array(Text::left($ip, 7), ["192.168"])) return true; //rede local
+    if (in_array(Text::left($ip, 6), ["172.17"])) return true; //rede local
+    if (in_array(Text::left($ip, 5), ["10.0."])) return true; //rede local
+
+    //
+    return false;
+}
